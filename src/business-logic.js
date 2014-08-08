@@ -44,17 +44,46 @@ SC.initialize({
         };
 
         this.getCommentsBySong = function(songId) {
-            var all = [];
-            SC.get('/tracks/'+songId+'/comments', function(comments) {
-                for (var i = 0; i < 100; i++) {
-                    all.push(comments[i].body);
+            var songCount = this.getSongById(songId).comment_count;
+            var pageSize = 200;
+            var pageCount = Math.floor(songCount / pageSize);
+            var commentPromises = [];
+            var allComments = [];
+            for (var i = 0; i < pageCount; i += 1) {
+                var promise = new Promise(function(resolve, reject) {
+                    SC.get('/tracks/'+songId+'/comments', { limit: pageSize, offset: pageSize * i }, function(comments) {
+                        resolve(comments);
+                    });
+                    // console.log("Delivering promise");
+                    // resolve("some value");
+                });
+                commentPromises.push(promise);
+            }
+            
+            Promise.all(commentPromises).then(function(commentsArray) {
+                // console.log('After all:', commentsArray);
+                for (var i = 0; i < commentsArray.length; i++) {
+                    // do stuff
+                    for (var j = 0; j < commentsArray[i].length; j++) {
+                        allComments.push(commentsArray[i][j].body);
+                    }
                 }
-            bl.filter(all);
+            // console.log(allComments);
+            bl.filter(allComments);
             });
+
+            // for (i = 0; i < pageCount; i++) {
+            //     SC.get('/tracks/'+songId+'/comments', { limit: pageSize, offset: pageSize }, function(comments) {
+            //         for (var i = 0; i < 200; i++) {
+            //             all.push(comments[i].body);
+            //         }
+            //     });
+            // }
+            // bl.filter(all);
         };
     };
 
-    var store = new DataStore();
+    window.store = new DataStore();
 
     var BusinessLogic = function() {
 
@@ -93,7 +122,9 @@ SC.initialize({
 
         this.filter = function(com) {
             var filter = com.join(" ");
-            console.log(filter);
+            filter2 = filter.replace(/[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g, '');
+            filter3 = filter2.replace(/[-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)?/ig, '');
+            console.log(filter3);
 
         };
 
