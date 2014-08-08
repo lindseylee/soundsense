@@ -42,6 +42,16 @@ SC.initialize({
                 songCache[songId]['followers'] = user.followers_count;
             });
         };
+
+        this.getCommentsBySong = function(songId) {
+            var all = [];
+            SC.get('/tracks/'+songId+'/comments', function(comments) {
+                for (var i = 0; i < 100; i++) {
+                    all.push(comments[i].body);
+                }
+            bl.filter(all);
+            });
+        };
     };
 
     var store = new DataStore();
@@ -75,6 +85,16 @@ SC.initialize({
             }
             // send songObjects to charts view
             console.log(songObjects);
+        };
+
+        this.sendSong = function(songId) {
+            store.getCommentsBySong(songId);
+        };
+
+        this.filter = function(com) {
+            var filter = com.join(" ");
+            console.log(filter);
+
         };
 
     };

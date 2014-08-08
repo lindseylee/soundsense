@@ -29,6 +29,13 @@
         bl.analyzeSongs(songIds)
     });
 
+    $('.comments').on('click', function(e) {
+        e.preventDefault();
+        var song = $('input[name=song]:checked').val();
+        bl.sendSong(song);
+
+    })
+
 // $('.analyze ul li').map(function (idx, elem) { return $(elem).data('id') })
 // [158827653, 119190675]
 
