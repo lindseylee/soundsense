@@ -1,2 +1,39 @@
-<h1>Welcome to Harp.</h1>
-<h3>This is yours to own. Enjoy.</h3>
+<!doctype html>
+<html>
+  <head>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+    <script type="text/javascript">
+    var g = {
+        client_id: "<%= process.env.SOUNDCLOUD_CLIENT_ID %>"
+    };
+    </script>
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
+  </head>
+  <body>
+
+    <form class="analyze">
+      <h3>Songs to analyze</h3>
+      <ul class="analyze-list"></ul>
+      <button>Analyze</button>
+    </form>
+
+    <div>
+      <form class="search-song">
+        <h3>Search for a song</h3>
+        <input id="input" type="text" name="songsearch">
+        <button>Search</button>
+      </form>
+    </div>
+
+    
+      <form class="select-song" style="display: none">
+        <div class="options"></div>
+        <button>Select</button>
+      </form>
+    
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="business-logic.js"></script>
+    <script type="text/javascript" src="presentation-ui.js"></script>
+  </body>
+</html>
