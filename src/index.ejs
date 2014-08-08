@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="no-js">
   <head>
     <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
     <script type="text/javascript">
@@ -8,32 +8,48 @@
     };
     </script>
     <script src="http://connect.soundcloud.com/sdk.js"></script>
+      <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
+  <link rel="stylesheet" href="foundation-5.3.3.custom/css/normalize.css">
+  <link rel="stylesheet" href="foundation-5.3.3.custom/css/foundation.css">
+
+  <!-- If you are using the gem version, you need this only -->
+  <link rel="stylesheet" href="app.css">
+
+  <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
 
+<br>
     <form class="analyze">
-      <h3>Songs to analyze</h3>
+      <h2>SONGS</h2>
       <ul class="analyze-list"></ul>
-      <button>Analyze</button>
+      <button class="button">ANALYZE</button>
     </form>
+
+<br>
 
     <div>
       <form class="search-song">
-        <h3>Search for a song</h3>
+        <h2>CHOOSE UP TO 4 SONGS</h2>
         <input id="input" type="text" name="songsearch">
-        <button>Search</button>
+        <button>SEARCH</button>
       </form>
     </div>
 
     
       <form class="select-song" style="display: none">
         <div class="options"></div>
-        <button>Select</button>
+        <button class="button">SELECT</button>
       </form>
     
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="business-logic.js"></script>
     <script type="text/javascript" src="presentation-ui.js"></script>
+     <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
   </body>
 </html>
