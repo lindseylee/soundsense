@@ -27,6 +27,7 @@
         });
         // console.log(elements);
         bl.analyzeSongs(songIds)
+        
     });
 
     $('.comments').on('click', function(e) {
@@ -35,6 +36,8 @@
         bl.sendSong(song);
 
     })
+
+
 
 // $('.analyze ul li').map(function (idx, elem) { return $(elem).data('id') })
 // [158827653, 119190675]
