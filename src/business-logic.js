@@ -8,10 +8,6 @@ SC.initialize({
         var songCache = {};
 
         this.getSongsByTitle = function (songTitle, callback) {
-            // First check songCache for songTitle
-            // If present, just pass it to callback
-            // Else, make API call, store results and pass to callback
-
             SC.get("/tracks", {q: songTitle, limit: 5 }, function(tracks) {
                 console.log(tracks);
                 var results = []
@@ -72,20 +68,11 @@ SC.initialize({
                         commentTimes.push(commentsArray[i][j].timestamp)
                     }
                 }
-            // console.log(allComments);
             songCache[songId]['comment_string'] = bl.filter(allComments);
+            // console.log(allComments);
             songCache[songId]['comment_times'] = bl.timeStamp(commentTimes);
             // console.log(commentTimes);
             });
-
-            // for (i = 0; i < pageCount; i++) {
-            //     SC.get('/tracks/'+songId+'/comments', { limit: pageSize, offset: pageSize }, function(comments) {
-            //         for (var i = 0; i < 200; i++) {
-            //             all.push(comments[i].body);
-            //         }
-            //     });
-            // }
-            // bl.filter(all);
         };
     };
 
@@ -113,17 +100,14 @@ SC.initialize({
             // console.log(song);
         };
 
-        this.analyzeSongs = function(songIds) {
-            
+        this.analyzeSongs = function(songIds) { 
             var songObjects = [];
             for (var i = 0; i < songIds.length; i++) {
                 songObjects.push(store.getSongById(songIds[i]));
             }
             // send songObjects to charts view
             console.log(songObjects);
-            var data = bl.barChartData();
-            var ctx = document.getElementById("plays").getContext('2d');
-            var chart = new Chart(ctx).Bar(data);
+            bl.barChartData(songObjects);
         };
 
         this.sendSong = function(songId) {
@@ -241,7 +225,7 @@ SC.initialize({
             return song;
         };
 
-        this.barChartData = function() {
+        this.barChartData = function(songs) {
             var barData = {
                 labels: ["jan", "feb", "march", "april", "may", "june", "july"],
                 datasets: [
@@ -263,7 +247,9 @@ SC.initialize({
                     }
                 ]
             };
-            return barData;
+            var ctx = document.getElementById("plays").getContext('2d');
+            var chart = new Chart(ctx).Bar(barData);
+            // return barData;
         };
 
     };
