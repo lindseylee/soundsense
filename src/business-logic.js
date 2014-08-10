@@ -28,6 +28,7 @@ SC.initialize({
                     results.push(track)
                 }
                 callback(results);
+
             });
         };
 
@@ -82,13 +83,18 @@ SC.initialize({
 
 
         this.searchForSongs = function(songTitle) {
+            console.log('Searching', songTitle);
             var songOptionsHTML = "";
             store.getSongsByTitle(songTitle, function(tracks) {
+                console.log('Found', tracks)
                 for (var i in tracks) {
                     songOptionsHTML += '<input type="radio" name="song" value="'+tracks[i].id+'">' + tracks[i].title + '<br />';
                 }
+                $('#SearchModal').foundation('reveal', 'open');
+                $('#SearchModal').foundation('reveal', 'close');
                 $('.options').html(songOptionsHTML);
-                $('.select-song').show();
+                // $('.select-song').show();
+
             });
         };
 

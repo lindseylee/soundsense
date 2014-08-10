@@ -1,44 +1,42 @@
-<!doctype html>
-<html>
-  <head>
-    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
-    <script type="text/javascript">
-    var g = {
-        client_id: "<%= process.env.SOUNDCLOUD_CLIENT_ID %>"
-    };
-    </script>
-    <script src="http://connect.soundcloud.com/sdk.js"></script>
-  </head>
-  <body>
 
-    <form class="analyze">
-      <h3>Songs to analyze</h3>
-      <ul class="analyze-list"></ul>
-      <button>Analyze</button>
-      <!-- <button class="comments">Get Comments</button>
-      <button class="widget">Display Songs</button> -->
+
+<div class="searchformbox">
+   
+   <div>
+        <form class="search-song">
+          <p class="song-form">CHOOSE UP TO 4 SONGS</p>
+            <div>
+              <input id="input" placeholder="type song title here" type="text" name="songsearch">
+            </div>
+          </div>
+          <button class="button" data-reveal-id="SearchModal">SEARCH</button>
+        </form>
+    </div
+
+  <br>
+
+<div id="SearchModal" class="reveal-modal" data-reveal-ajax="true">
+  <h2><strong>Search Results</strong></h2>
+   <form id="overimage" class="select-song">
+          <div class="options"></div>
+          <button class="button">SELECT</button>
     </form>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+  <br>
+  <br>
 
-    <div>
-      <form class="search-song">
-        <h3>Search for a song</h3>
-        <input id="input" type="text" name="songsearch">
-        <button>Search</button>
-      </form>
+    <div class="analyze small-6 large-centered columns">
+      <div class="row">
+        <div>
+          <form>
+          <p class="song-form">SONGS</p>
+          <ul class="analyze-list"></ul>
+          <button class="button">ANALYZE</button>
+          </form>
+        </div>
+      </div>
     </div>
-
-    
-      <form class="select-song" style="display: none">
-        <div class="options"></div>
-        <button>Select</button>
-      </form>
+</div>
 
       <canvas id="plays" width="600" height="400"></canvas>
-    
-
-    <script type="text/javascript" src="Chart.min.js"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="business-logic.js"></script>
-    <script type="text/javascript" src="presentation-ui.js"></script>
-  </body>
-</html>
