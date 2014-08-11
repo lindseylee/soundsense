@@ -19,6 +19,10 @@ h3{
   font-weight: 300;
 }
 
+p{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 .logo {
   float: left;
   color: white;
@@ -43,7 +47,7 @@ h3{
 
 .searchformbox {
   position: relative;
-  top: -800px;
+  top: -850px;
   background-color: rgba(255,255,255,0.6);
   opacity: inherit;
   display: inline-block;
@@ -59,22 +63,25 @@ h3{
 
 .analyze-form {
   position: relative;
-  top: -760px;
+  font-family: 'Roboto Condensed', sans-serif;
+  top: -820px;
   background-color: rgba(255,255,255,0.6);
   opacity: inherit;
   display: inline-block;
   padding: .5cm;
-  width: 500px
+  margin: 1cm;
+  width: 500px;
+  float: auto
 }
 
 .select-song {
   position: relative;
-  top: -500px;
+  top: -800px;
   background-color: rgba(255,255,255,0.6);
   opacity: inherit;
   display: inline-block;
   padding: .5cm;
-  float: right
+  float: right;
 }
 
 .button {

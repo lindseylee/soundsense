@@ -111,8 +111,11 @@ SC.initialize({
                 songObjects.push(store.getSongById(songIds[i]));
             }
             // send songObjects to charts view
+
             console.log(songObjects);
             bl.barChartData(songObjects);
+            $('.analyze-form-box').hide();
+        
         };
 
         this.sendSong = function(songId) {
@@ -261,6 +264,12 @@ SC.initialize({
 
     window.bl = new BusinessLogic();
 })();
+
+// var playsvlike = new Chart(ctx).Bar(data, options);
+// var playsvfollowers = new Chart(ctx).Bar(data, options);
+// var followsvlike = new Chart(ctx).Bar(data, options);
+
+
 // SC.get("/tracks", { q: 'sad machine'}, function(tracks) {
 //     for (i = 0; i < 10; i++) {
 //         console.log(tracks[i].title);
