@@ -58,10 +58,9 @@ SC.initialize({
                 for (var i in tracks) {
                     songOptionsHTML += '<input type="radio" name="song" value="'+tracks[i].id+'">' + tracks[i].title + '<br />';
                 }
-                $('#SearchModal').foundation('reveal', 'open');
-                $('#SearchModal').foundation('reveal', 'close');
+           
                 $('.options').html(songOptionsHTML);
-                // $('.select-song').show();
+                $('.select-song').show();
 
             });
         };

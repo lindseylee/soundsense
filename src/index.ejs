@@ -9,19 +9,18 @@
               <input id="input" placeholder="type song title here" type="text" name="songsearch">
             </div>
           </div>
-          <button class="button" data-reveal-id="SearchModal">SEARCH</button>
+          <button class="button">SEARCH</button>
         </form>
     </div
 
   <br>
 
-<div id="SearchModal" class="reveal-modal" data-reveal-ajax="true">
+<div>
   <h2><strong>Search Results</strong></h2>
-   <form id="overimage" class="select-song">
+   <form id="overimage" class="select-song" style="display:none">
           <div class="options"></div>
           <button class="button">SELECT</button>
     </form>
-  <a class="close-reveal-modal">&#215;</a>
 </div>
   <br>
   <br>
@@ -29,10 +28,12 @@
     <div class="analyze small-6 large-centered columns">
       <div class="row">
         <div>
-          <form>
+          <form class="analyze">
           <p class="song-form">SONGS</p>
           <ul class="analyze-list"></ul>
           <button class="button">ANALYZE</button>
+          <!-- <button class="comments">Get Comments</button>
+      <button class="widget">Display Songs</button> -->
           </form>
         </div>
       </div>
