@@ -1,7 +1,7 @@
 (function() {
     var $searchForm = $('.search-song');
     var $selectForm = $('.select-song');
-    var $analyzeForm = $('.analyze');
+    var $analyzeForm = $('.analyze-form');
 
     $searchForm.on('submit', function(e) {
         e.preventDefault();
@@ -22,14 +22,15 @@
 
     $analyzeForm.on('submit', function(e) {
         e.preventDefault();
-        var songIds = $('.analyze ul li').map(function (index, elem) {
+        var songIds = $('.analyze-form ul li').map(function (index, elem) {
             return $(elem).data('id');
         });
-        // console.log(elements);
+        console.log(songIds);
         bl.analyzeSongs(songIds)
-         $("analyze").on('click', function(e) {
-            $("analyze-form-box").hide();
-            });    
+         // $(".analyze-button").on('click', function(e) {
+            $(".searchformbox").hide();
+            $(".analyze-form-box").hide();
+         //    });    
         
     });
 

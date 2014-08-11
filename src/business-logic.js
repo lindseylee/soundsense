@@ -111,10 +111,11 @@ SC.initialize({
                 songObjects.push(store.getSongById(songIds[i]));
             }
             // send songObjects to charts view
-
+            // $('.analyze-form-box').hide();
             console.log(songObjects);
             bl.barChartData(songObjects);
-            $('.analyze-form-box').hide();
+            
+
         
         };
 
@@ -255,9 +256,10 @@ SC.initialize({
                     }
                 ]
             };
-            var ctx = document.getElementById("plays").getContext('2d');
-            var chart = new Chart(ctx).Bar(barData);
+            // var ctx = document.getElementById("plays").getContext('2d');
+            // var chart = new Chart(ctx).Bar(barData);
             // return barData;
+            // console.log(songs);
         };
 
     };
