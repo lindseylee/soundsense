@@ -2,9 +2,9 @@
 
 <div class="searchformbox">
    
-   <div>
+   <div class="search-song-box">
         <form class="search-song">
-          <p class="song-form">CHOOSE UP TO 4 SONGS</p>
+          <p class="song-form-header">CHOOSE UP TO 4 SONGS</p>
             <div>
               <input id="input" placeholder="type song title here" type="text" name="songsearch">
             </div>
@@ -16,28 +16,33 @@
   <br>
 
 <div>
-  <h2><strong>Search Results</strong></h2>
-   <form id="overimage" class="select-song" style="display:none">
+  <div class="select-song">
+   <form class="select-song" style="display:none">
+   <h2><strong>Search Results</strong></h2>
           <div class="options"></div>
           <button class="button">SELECT</button>
     </form>
-</div>
-  <br>
-  <br>
-
-    <div class="analyze small-6 large-centered columns">
-      <div class="row">
-        <div>
-          <form class="analyze">
-          <p class="song-form">SONGS</p>
-          <ul class="analyze-list"></ul>
-          <button class="button">ANALYZE</button>
-          <!-- <button class="comments">Get Comments</button>
-      <button class="widget">Display Songs</button> -->
-          </form>
-        </div>
-      </div>
     </div>
 </div>
 
-      <canvas id="plays" width="600" height="400"></canvas>
+  <br>
+  <br>
+  <div class="analyze-form-box">
+      <div class="small-6 large-centered columns">
+        <div class="row">
+          <div>
+            <form class="analyze-form">
+            <p class="song-form-header">SONGS</p>
+            <ul class="analyze-list"></ul>
+            <br>
+            <button class="button anal-button">ANALYZE</button>
+            <!-- <button class="comments">Get Comments</button>
+        <button class="widget">Display Songs</button> -->
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+    

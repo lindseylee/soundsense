@@ -26,6 +26,9 @@
             return $(elem).data('id');
         });
         // console.log(elements);
+         $(".anal-button").click(function(){
+            $("analyze-form-box, search-song-box").hide();
+            });
         bl.analyzeSongs(songIds)
         
     });
